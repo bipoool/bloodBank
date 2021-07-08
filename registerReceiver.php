@@ -10,11 +10,11 @@
             <p class="text-center" id="heading">Receiver Register</p><br>
 
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Enter Email">
+                <input type="email" class="form-control" placeholder="Enter Email" required>
             </div>
 
             <div class="form-group">
-                <input type="password" name="" id="" class="form-control" placeholder="Enter Password">
+                <input type="password" name="" id="" class="form-control" placeholder="Enter Password" required>
             </div><br>
             <input type="submit" value="Register" class="btn btn-info btn-lg center-block"> 
             <hr>
