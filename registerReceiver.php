@@ -1,23 +1,95 @@
 <?php
     //including the header (includes/header.php)
-    include_once("includes/header.php") 
+    include_once("includes/header.php");
+    
+    $error = "";
+    if(isset($_POST["submit"])){
+
+        //defining a function for validation(Email, name, password etc...) Good from protection from SQL injection
+        function validateData($data){
+
+            $textPattern = "/^[a-zA-Z0-9!@#$%^&*\.\s&\-]*$/";
+            return preg_match($textPattern, $data);
+
+        }
+        
+        if(validateData($_POST["name"])){
+            $name = $_POST["name"];
+        }
+        else{
+            $error = "Name is not Valid";
+        }
+
+        if(validateData($_POST["email"])){
+            $email = $_POST["email"];
+        }
+        else{
+            $error = "Email is not Valid";
+        }
+
+        $password = $_POST["password"];
+        $confirmPassword = $_POST["confirmPassword"];
+
+        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword){
+            $password = password_hash($password, PASSWORD_BCRYPT);
+        }
+        else{
+            $error = "Password is not Valid";
+        }
+        $bloodGroup = $_POST["bloodGroup"];
+        echo $bloodGroup;
+
+        if(!$error){
+            echo $name . $email . $bloodGroup . $password;
+            //this is object is from CRUD.php. All classes in that file is written by me from scratch
+            $query = new query();
+            //$query->addData("receiver", array("name"=>$name, "password"=>$password, "email"=>$email, "bloodGroup"=>$bloodGroup));
+        }
+    }
 ?>   
 
     <div class="container " id="login-form">
     
-        <form action="" method="post" class="col-lg-6 col-sm-8 col-xs-12 col-lg-offset-3 col-sm-offset-2 jumbotron">
+    <?php if($error != "") echo "<div class='alert alert-danger'>$error</div>" ?>
+
+    <form action = '<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>' method="post" class="col-lg-6 col-sm-8 col-xs-12 col-lg-offset-3 col-sm-offset-2 jumbotron">
+    
+        <p class="text-center" id="heading">Receiver Register</p><br>
+
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" id="" class="form-control" placeholder="Confirm Password" name="confirmPassword" required>
+        </div>
+
+        <div class="form-group">
+            <label for="blood-groups">Choose Your Blood Group</label>
+            <select name="bloodGroup" id="blood-groups" class="form-control">
             
-            <p class="text-center" id="heading">Receiver Register</p><br>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            
+            </select>
+        </div>
 
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="Enter Email" required>
-            </div>
 
-            <div class="form-group">
-                <input type="password" name="" id="" class="form-control" placeholder="Enter Password" required>
-            </div><br>
-            <input type="submit" value="Register" class="btn btn-info btn-lg center-block"> 
-            <hr>
+        <br><input type="submit" value="Register" class="btn btn-info btn-lg center-block" name="submit"> <hr>
 
             <a href="registerHospital.php" class="btn btn-warning btn-lg center-block">Register as Hospital</a><br>
             
