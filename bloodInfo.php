@@ -100,10 +100,9 @@
                 }
             ?>
 
-        </table><br>
-        
+        </table><br><br>
         <a class="center-block btn btn-success btn-lg" style="width: fit-content;" href="requestSample.php">Request Sample+</a> 
-    
+        <div class="alert text-danger center-block" style="width: max-content;">&#9432; Only Receivers can Request for Sample</div>
     </div>
 
 <?php 

@@ -1,6 +1,6 @@
 <?php
     
-    session_start();        
+    session_start(); 
     if($_SESSION["id"] and $_SESSION["userType"] === "hospital"){
       header("location: addBloodInfo.php");
       die();

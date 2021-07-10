@@ -74,13 +74,15 @@
         <div class="form-group">
             <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
         </div>
-
+        
+        <div id = "passError" class="text-danger"></div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
+            <input type="password" class="form-control" id = "passwordR" placeholder="Enter Password" name="password" required>
         </div>
 
+        <div id = "confirmPassError" class="text-danger"></div>
         <div class="form-group">
-            <input type="password" id="" class="form-control" placeholder="Confirm Password" name="confirmPassword" required>
+            <input type="password" class="form-control" id = "confirmPasswordR" placeholder="Confirm Password" name="confirmPassword" required>
         </div>
 
         <div class="form-group">

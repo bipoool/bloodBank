@@ -3,7 +3,6 @@
     session_start();
     //including the header (includes/header.php)
     include_once("includes/header.php");
-
     loginRequired("receiver");
 
     $id = $_SESSION["id"];

@@ -5,7 +5,7 @@
     include_once("includes/header.php");
 
     loginRequired('hospital');
-
+    
     $id = $_SESSION["id"];
     $query = new query();
     $result = $query->getData("hospitals","*", array("id"=>$id));

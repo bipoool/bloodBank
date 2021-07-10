@@ -3,7 +3,6 @@
     session_start();
     //including the header (includes/header.php)
     include_once("includes/header.php");
-
     loginRequired('hospital');
     $id = $_SESSION["id"];
     $query = new query();

@@ -30,7 +30,7 @@
     <title>The Blood Bank</title>
 </head>
 <body class="img-responsive">
-  <img src="images/background.jpg" alt="background" class="bround" style="z-index: -1000; position:absolute; opacity:0.5;">
+  <img src="images/background.jpg" alt="background" class="bround hidden-xs" style="z-index: -1000; position:absolute; opacity:0.2;">
 
 <nav class="navbar navbar-default" id="navbar">
   <div class="container-fluid">
