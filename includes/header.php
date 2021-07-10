@@ -2,6 +2,18 @@
 
   include("CRUD.php");
 
+  function loginRequired($type){
+    if(!$_SESSION["id"] or $_SESSION["userType"] != "$type"){
+      header("location: index.php");
+    }
+  }
+
+  //defining a function for validation(Email, name, password etc...) Good from protection from SQL injection
+  function validateData($data){
+    $textPattern = "/^[a-zA-Z0-9!@#$%^&*\.\s&\-]*$/";
+    return preg_match($textPattern, $data);
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +30,7 @@
     <title>The Blood Bank</title>
 </head>
 <body class="img-responsive">
+  <img src="images/background.jpg" alt="background" class="bround" style="z-index: -1000; position:absolute; opacity:0.5;">
 
 <nav class="navbar navbar-default" id="navbar">
   <div class="container-fluid">
@@ -41,15 +54,19 @@
       
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="" class="btn btn-lg btn-default">Blood-Info</a></li>
+        <li><a href="bloodInfo.php" class="btn btn-lg">Blood-Info</a></li>
+        <?php
+
+          if(session_status() === PHP_SESSION_ACTIVE){
+            if(isset($_SESSION["id"]) and isset($_SESSION["userType"])){
+              echo "<li><a href='logout.php' class='btn btn-lg'>LogOut</a></li>";
+            }
+          }
+
+        ?>
+        
 
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    <nav class="navbar-default" >
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        
-    </div>
-    </nav>

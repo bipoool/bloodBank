@@ -16,7 +16,7 @@
         protected function connect(){
             $this->host = "localhost";
             $this->dbUserName = "root";
-            $this->dbPassword = "root";
+            $this->dbPassword = "";
             $this->dbName = "bloodBank";
 
             try{

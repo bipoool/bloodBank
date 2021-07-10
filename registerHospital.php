@@ -1,16 +1,22 @@
 <?php
+
+    session_start();        
+    if($_SESSION["id"] and $_SESSION["userType"] === "hospital"){
+      header("location: addBloodInfo.php");
+      die();
+    }
+    elseif($_SESSION["id"] and $_SESSION["userType"] === "receiver"){
+      header("location: bloodInfo.php");
+      die();
+    }
+    session_unset();
+    session_destroy();
+
     //including the header (includes/header.php)
     include_once("includes/header.php");
+
     $error = "";
     if(isset($_POST["submit"])){
-        
-        //defining a function for validation(Email, name, password etc...) Good from protection from SQL injection
-        function validateData($data){
-
-            $textPattern = "/^[a-zA-Z0-9!@#$%^&*\.\s&\-]*$/";
-            return preg_match($textPattern, $data);
-
-        }
         
         if(validateData($_POST["name"])){
             $name = $_POST["name"];
@@ -29,7 +35,7 @@
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
 
-        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword){
+        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword and strlen($password)>8){
             $password = password_hash($password, PASSWORD_BCRYPT);
         }
         else{
@@ -47,8 +53,15 @@
 
             //this is object is from CRUD.php. All classes in that file is written by me from scratch
             $query = new query();
-            $query->addData("hospitals", array("name"=>$name, "password"=>$password, "email"=>$email, "address"=>$address));
-
+            if($query->getData("hospitals", "*", array("email"=>$email))){
+                $error = "User already exist. Try Login In";
+            }
+            else{
+                $query->addData("hospitals", array("name"=>$name, "password"=>$password, "email"=>$email, "address"=>$address));
+                header("location: loginHospital.php?registered=true");
+                die();
+            }
+            
         }
 
 
@@ -91,7 +104,7 @@
             <a href="registerReceiver.php" class="btn btn-warning btn-lg center-block">Register as Receiver</a><br>
             
             <p class="text-center" id="or">-----or-----</p>
-            <a href="loginHospital.php" class="btn btn-danger center-block">Login</a><br>
+            <a href="loginHospital.php" class="btn btn-danger center-block">LogIn</a><br>
              
         </form>
     

@@ -1,17 +1,22 @@
 <?php
+
+    session_start();        
+    if($_SESSION["id"] and $_SESSION["userType"] === "hospital"){
+      header("location: addBloodInfo.php");
+      die();
+    }
+    elseif($_SESSION["id"] and $_SESSION["userType"] === "receiver"){
+      header("location: bloodInfo.php");
+      die();
+    }
+    session_unset();
+    session_destroy();
+    
     //including the header (includes/header.php)
     include_once("includes/header.php");
     
     $error = "";
     if(isset($_POST["submit"])){
-
-        //defining a function for validation(Email, name, password etc...) Good from protection from SQL injection
-        function validateData($data){
-
-            $textPattern = "/^[a-zA-Z0-9!@#$%^&*\.\s&\-]*$/";
-            return preg_match($textPattern, $data);
-
-        }
         
         if(validateData($_POST["name"])){
             $name = $_POST["name"];
@@ -30,20 +35,26 @@
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
 
-        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword){
+        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword and strlen($password)>8){
             $password = password_hash($password, PASSWORD_BCRYPT);
         }
         else{
             $error = "Password is not Valid";
         }
         $bloodGroup = $_POST["bloodGroup"];
-        echo $bloodGroup;
 
         if(!$error){
-            echo $name . $email . $bloodGroup . $password;
+
             //this is object is from CRUD.php. All classes in that file is written by me from scratch
             $query = new query();
-            //$query->addData("receiver", array("name"=>$name, "password"=>$password, "email"=>$email, "bloodGroup"=>$bloodGroup));
+            if($query->getData("receivers", "*", array("email"=>$email))){
+                $error = "User already exist. Try Login In";
+            }
+            else{
+                $query->addData("receivers", array("name"=>$name, "password"=>$password, "email"=>$email, "bloodGroup"=>$bloodGroup));
+                header("location: index.php?registered=true");
+                die();
+            }
         }
     }
 ?>   
@@ -73,6 +84,7 @@
         </div>
 
         <div class="form-group">
+
             <label for="blood-groups">Choose Your Blood Group</label>
             <select name="bloodGroup" id="blood-groups" class="form-control">
             

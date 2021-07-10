@@ -1,3 +1,4 @@
+
 body{
     position: relative;
 }
@@ -29,16 +30,7 @@ body{
     color: rgb(156, 156, 156);
 }
 
-@media screen and (min-height: 1085px) {
-    body{
-        background: url("../images/background.png") no-repeat fixed bottom;
-        background-repeat: repeat-x;
-        background-position-y: 120%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    div#navbar-header{
-        
-    }
+.bround{
+    width: 100vw;
+    height: 100vh;
 }
