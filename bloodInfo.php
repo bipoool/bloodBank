@@ -18,6 +18,7 @@
     $query = new query();
     $condition = array();
 
+    //Search Button Logic
     if($hospitalName){
         $tempQuery = "SELECT id FROM hospitals ";
         $tempQuery .= "WHERE name like " . "'$hospitalName'";
@@ -42,6 +43,7 @@
         $bloodInfo = $query->getData("hospitalBloodData","*");
     }
     
+    //Greeting according to who loggedIn
     if(isset($_SESSION["id"])){
 
         $id = $_SESSION["id"];
@@ -85,8 +87,10 @@
 
             <?php
                 if($bloodInfo){
-                    foreach($bloodInfo as $info){
 
+                    //Displaying all the sample information of all the hospitals
+                    foreach($bloodInfo as $info){
+                        
                         $id = $info["id"];
                         $result = $query->getData("hospitals", "name, email", array("id"=>$id))[0];
                         $name = $result["name"];

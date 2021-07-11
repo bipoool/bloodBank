@@ -4,6 +4,7 @@
     //including the header (includes/header.php)
     include_once("includes/header.php");
 
+    //checking for Hospital users
     loginRequired('hospital');
     
     $id = $_SESSION["id"];
@@ -11,6 +12,7 @@
     $result = $query->getData("hospitals","*", array("id"=>$id));
     $name = $result[0]["name"];
 
+    //When user clicks the updateBloodInfo button
     if(isset($_POST["submit"])){
 
         $AP = $_POST["AP"];

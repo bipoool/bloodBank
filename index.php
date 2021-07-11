@@ -1,6 +1,8 @@
 <?php
     
-    session_start(); 
+    session_start();
+    
+    //Checking if a Receiver or a hospital is already logged in or not
     if($_SESSION["id"] and $_SESSION["userType"] === "hospital"){
       header("location: addBloodInfo.php");
       die();

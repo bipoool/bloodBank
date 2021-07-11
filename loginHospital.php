@@ -1,5 +1,6 @@
 <?php
 
+    //checking if the user is logged in or not
     session_start();        
     if($_SESSION["id"] and $_SESSION["userType"] === "hospital"){
       header("location: addBloodInfo.php");
@@ -67,7 +68,8 @@
     <div class="container " id="login-form">
 
         <?php 
-        
+
+            //checking for errors in the form
             if($error != "") echo "<div class='alert alert-danger'>$error</div>";
             if(isset($_GET["registered"])){
                 echo "<div class='alert alert-success'>Successfully Registered! Login Here</div>";

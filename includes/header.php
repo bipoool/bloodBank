@@ -57,6 +57,7 @@
         <li><a href="bloodInfo.php" class="btn btn-lg">Blood-Info</a></li>
         <?php
 
+          //logout button accrding to the login state
           if(session_status() === PHP_SESSION_ACTIVE){
             if(isset($_SESSION["id"]) and isset($_SESSION["userType"])){
               echo "<li><a href='logout.php' class='btn btn-lg'>LogOut</a></li>";

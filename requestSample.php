@@ -12,8 +12,9 @@
     $receiverId = $result[0]["id"];
     $bloodGroup = $result[0]["bloodGroup"];
 
-    $hospitals = $query->getData("hospitals", "name, id");
+    $hospitals = $query->getData("hospitals", "name, id");  
 
+    //when user clicks the request button!
     if(isset($_POST["submit"])){
 
         $hospital = $_POST["hospital"];

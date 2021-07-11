@@ -1,5 +1,6 @@
 <?php
 
+    //checking if the user is already loggedIn or not
     session_start();        
     if($_SESSION["id"] and $_SESSION["userType"] === "hospital"){
       header("location: addBloodInfo.php");
@@ -15,7 +16,10 @@
     //including the header (includes/header.php)
     include_once("includes/header.php");
 
+    //initializing the error variable
     $error = "";
+
+    //When User clicks the register button
     if(isset($_POST["submit"])){
         
         if(validateData($_POST["name"])){

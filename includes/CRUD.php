@@ -14,6 +14,8 @@
 
         //protected connect function to connect to the databse
         protected function connect(){
+
+            //please moidify according to your database configuration
             $this->host = "localhost";
             $this->dbUserName = "root";
             $this->dbPassword = "";

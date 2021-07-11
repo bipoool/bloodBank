@@ -7,6 +7,7 @@
     $id = $_SESSION["id"];
     $query = new query();
 
+    //If Hospital deleted any request
     if(isset($_GET["delete"])){
         $delId = $_GET["delete"];
         $query->deleteData("requestedBloods", array("receiverId"=>$delId, "hospitalId"=>$id));
@@ -27,6 +28,7 @@
 
             <?php
                 if($result){
+                    //displaying all the results
                     foreach($result as $row){
                     
                         echo "<tr><td>" . $row["receiverName"] . "</td><td>" . $row["bloodGroup"] . "</td><td>". $row["units"] . "</td><td><a class = 'btn btn-danger glyphicon glyphicon-trash' href = 'requestedBlood.php?delete=" . $row["receiverId"] ."'></a></td></tr>";

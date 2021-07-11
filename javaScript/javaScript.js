@@ -1,3 +1,6 @@
+
+//Checing password length and password match with confirm password
+
 var passwordR = document.getElementById("passwordR");
 var confirmPasswordR = document.getElementById("confirmPasswordR"); 
 
