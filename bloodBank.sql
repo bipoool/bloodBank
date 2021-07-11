@@ -67,9 +67,9 @@ CREATE TABLE `hospitals` (
 --
 
 INSERT INTO `hospitals` (`id`, `name`, `address`, `email`, `password`) VALUES
-(4, 'max', 'dwarka sector-7', 'max@gmail.com', '$2y$10$rDdNFE5ZF0oerpBI73mtmeVnkkCyrpG1xH2w1C3rb4YO5fZhKOgtO'),
-(5, 'mani', 'dwarka sector-7', 'mani@gmail.com', '$2y$10$tB3QzchB3HCC.e8vWuREhuM7NpVF.AuJJDm9qEOzJTmO0ifm3jH82'),
-(6, 'aims', 'dwarka', 'aims@gmail.com', '$2y$10$tdmQCEQHZqiK0jOakf29Z.rzzQ3yvh5wwNUv/OHz87ag6DWSspjTK');
+(4, 'Max Hospital', 'dwarka sector-7', 'max@gmail.com', '$2y$10$rDdNFE5ZF0oerpBI73mtmeVnkkCyrpG1xH2w1C3rb4YO5fZhKOgtO'),
+(5, 'Mani Hospital', 'dwarka sector-7', 'mani@gmail.com', '$2y$10$tB3QzchB3HCC.e8vWuREhuM7NpVF.AuJJDm9qEOzJTmO0ifm3jH82'),
+(6, 'Aims Hospital', 'dwarka', 'aims@gmail.com', '$2y$10$tdmQCEQHZqiK0jOakf29Z.rzzQ3yvh5wwNUv/OHz87ag6DWSspjTK');
 
 -- --------------------------------------------------------
 
