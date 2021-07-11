@@ -12,13 +12,13 @@
     $receiverId = $result[0]["id"];
     $bloodGroup = $result[0]["bloodGroup"];
 
-    $hospitals = $query->getData("hospitals", "name, id");  
+    $hospitals = $query->getData("hospitals", "name, id");
 
     //when user clicks the request button!
     if(isset($_POST["submit"])){
 
-        $hospital = $_POST["hospital"];
-        $hospitalId = $_SESSION["allHospitals"][$hospital];
+        $hospitalId = $_POST["hospital"];
+        $hospital = $query->getdata("hospitals", "name", array("id"=>$hospitalId))[0][0];
         $units = $_POST["units"];
         $result = $query->getData("requestedBloods", "*", array("receiverId"=>$id));
 
@@ -58,14 +58,11 @@
 
                 <?php
 
-                    $allHospitals = array();
                     foreach($hospitals as $hospital){
 
-                        $allHospitals[$hospital["name"]] = $hospital["id"];
-                        echo "<option value=" . $hospital["name"] . ">" .$hospital["name"]. "</option>";
+                        echo "<option value= " . $hospital["id"] . ">" .$hospital["name"]. "</option>";
 
                     }
-                    $_SESSION["allHospitals"] = $allHospitals;
                 ?>
             
             </select>

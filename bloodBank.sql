@@ -113,12 +113,6 @@ CREATE TABLE `requestedBloods` (
 -- Dumping data for table `requestedBloods`
 --
 
-INSERT INTO `requestedBloods` (`receiverId`, `receiverName`, `hospitalId`, `hospitalName`, `bloodGroup`, `units`) VALUES
-(2, 'anjali gupta', 5, 'mani', 'B+', 1),
-(2, 'anjali gupta', 6, 'aims', 'B+', 1),
-(5, 'vipul gupta', 6, 'aims', 'A+', 4),
-(5, 'vipul gupta', 4, 'max', 'A+', 1),
-(5, 'vipul gupta', 5, 'mani', 'A+', 1);
 
 --
 -- Indexes for dumped tables
