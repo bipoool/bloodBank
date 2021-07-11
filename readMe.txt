@@ -9,7 +9,7 @@ This is the application for a BloodBank.
 
 -->I've also added an extra feature in the bloodInfo page. You can search the hospital name according to your need
 
-
+--> I'm hosting this application on bluecub.in you can also check it over there
 
 
 
