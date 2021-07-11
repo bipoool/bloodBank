@@ -11,6 +11,7 @@ This is the application for a BloodBank.
 
 --> I'm hosting this application on bluecub.in you can also check it over there
 
+--> I've also enabled the errors. In case anyone get any.
 
 
 
