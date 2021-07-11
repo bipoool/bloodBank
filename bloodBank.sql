@@ -28,15 +28,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `hospitalBloodData` (
-  `id` int(10) NOT NULL,
-  `AP` int(10) NOT NULL,
-  `AN` int(10) NOT NULL,
-  `BP` int(10) NOT NULL,
-  `BN` int(10) NOT NULL,
-  `ABP` int(10) NOT NULL,
-  `ABN` int(10) NOT NULL,
-  `OP` int(10) NOT NULL,
-  `ONeg` int(10) NOT NULL
+  `id` int(11) NOT NULL,
+  `AP` int(11) NOT NULL,
+  `AN` int(11) NOT NULL,
+  `BP` int(11) NOT NULL,
+  `BN` int(11) NOT NULL,
+  `ABP` int(11) NOT NULL,
+  `ABN` int(11) NOT NULL,
+  `OP` int(11) NOT NULL,
+  `ONeg` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -55,11 +55,11 @@ INSERT INTO `hospitalBloodData` (`id`, `AP`, `AN`, `BP`, `BN`, `ABP`, `ABN`, `OP
 --
 
 CREATE TABLE `hospitals` (
-  `id` int(10) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `password` varchar(61) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `address` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -78,9 +78,9 @@ INSERT INTO `hospitals` (`id`, `name`, `address`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `receivers` (
-  `id` int(10) NOT NULL,
-  `name` varchar(25) NOT NULL,
-  `email` varchar(40) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `password` varchar(61) DEFAULT NULL,
   `bloodGroup` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -90,7 +90,9 @@ CREATE TABLE `receivers` (
 --
 
 INSERT INTO `receivers` (`id`, `name`, `email`, `password`, `bloodGroup`) VALUES
-(2, 'anjali gupta', 'itsmevipulgupta@gmail.com', '$2y$10$Ydh9vBQ8MvSbNlOIkPBOzuWduqjkTAQQU.rb47ypXWgaUZtZqqgCW', 'B+');
+(1, 'vipul gupta', 'itsmevipulgupta.2011@gmail.com', '$2y$10$IcrFqWIJYn.RFUxAhO8mVeEOUwfxs4rUZT0K1cZzayJV2f6.E.0ze', 'A+'),
+(2, 'anjali gupta', 'itsmevipulgupta@gmail.com', '$2y$10$Ydh9vBQ8MvSbNlOIkPBOzuWduqjkTAQQU.rb47ypXWgaUZtZqqgCW', 'B+'),
+(5, 'vipul gupta', 'itsmevipulgupta.201@gmail.com', '$2y$10$55mU0cAO/i.C8u9LfDB2UuAWiSkOUx3Lp/7AhRoxr.AtbJweoi18W', 'A+');
 
 -- --------------------------------------------------------
 
@@ -99,12 +101,12 @@ INSERT INTO `receivers` (`id`, `name`, `email`, `password`, `bloodGroup`) VALUES
 --
 
 CREATE TABLE `requestedBloods` (
-  `receiverId` int(10) NOT NULL,
-  `receiverName` varchar(25) NOT NULL,
-  `hospitalId` int(10) NOT NULL,
+  `receiverId` int(11) NOT NULL,
+  `receiverName` varchar(20) NOT NULL,
+  `hospitalId` int(11) NOT NULL,
   `hospitalName` varchar(50) NOT NULL,
   `bloodGroup` varchar(5) NOT NULL,
-  `units` int(10) DEFAULT NULL
+  `units` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -157,13 +159,13 @@ ALTER TABLE `requestedBloods`
 -- AUTO_INCREMENT for table `hospitals`
 --
 ALTER TABLE `hospitals`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `receivers`
 --
 ALTER TABLE `receivers`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
