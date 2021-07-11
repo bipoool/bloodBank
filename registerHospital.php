@@ -39,7 +39,7 @@
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
 
-        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword and strlen($password)>8){
+        if(validateData($password) and validateData($confirmPassword) and $password === $confirmPassword and strlen($password)>=8){
             $password = password_hash($password, PASSWORD_BCRYPT);
         }
         else{
