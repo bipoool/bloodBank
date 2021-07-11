@@ -67,22 +67,22 @@
                 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>A+</label>
-                    <input type="number" class="form-control " placeholder="A+ units" name="AP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["AP"];} ?> required>
+                    <input type="number" class="form-control " placeholder="A+ units" name="AP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["AP"];} else echo 0; ?> required>
                 </div>
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>A-</label>
-                    <input type="number" class="form-control" placeholder="A- units" name="AN" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["AN"];} ?> required>
+                    <input type="number" class="form-control" placeholder="A- units" name="AN" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["AN"];} else echo 0;  ?> required>
                 </div>
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>B+</label>
-                    <input type="number" class="form-control " placeholder="B+ units" name="BP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["BP"];} ?> required>
+                    <input type="number" class="form-control " placeholder="B+ units" name="BP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["BP"];} else echo 0;  ?> required>
                 </div>
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>B-</label>
-                    <input type="number" class="form-control" placeholder="B- units" name="BN" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["BN"];} ?> required>
+                    <input type="number" class="form-control" placeholder="B- units" name="BN" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["BN"];} else echo 0;  ?> required>
                 </div>
             </div><br>
 
@@ -90,22 +90,22 @@
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>AB+</label>
-                    <input type="number" class="form-control " placeholder="AB+ units" name="ABP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["ABP"];} ?> required>
+                    <input type="number" class="form-control " placeholder="AB+ units" name="ABP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["ABP"];} else echo 0; ?> required>
                 </div>
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>AB-</label>
-                    <input type="number" class="form-control" placeholder="AB- units" name="ABN" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["ABN"];} ?> required>
+                    <input type="number" class="form-control" placeholder="AB- units" name="ABN" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["ABN"];} else echo 0; ?> required>
                 </div>
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>O+</label>
-                    <input type="number" class="form-control " placeholder="O+ units" name="OP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["OP"];} ?> required>
+                    <input type="number" class="form-control " placeholder="O+ units" name="OP" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["OP"];} else echo 0; ?> required>
                 </div>
 
                 <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
                     <label>O-</label>
-                    <input type="number" class="form-control" placeholder="O- units" name="ONeg" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["ONeg"];} ?> required>
+                    <input type="number" class="form-control" placeholder="O- units" name="ONeg" min="0" value= <?php if($bloodInfo){ echo $bloodInfo["ONeg"];} else echo 0; ?> required>
                 </div>
             </div><br><br>
 
